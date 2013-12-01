@@ -10,13 +10,11 @@ app.get "/", (request, response) ->
 
   contents = []
 
-  console.log "PARSING PARSING"
-
-  data = fs.readFileSync("./lib/dictionaries/hackernews.txt").toString().split(/\r?\n/);
+  data = []
+  for source in request.query.sources.split(",")
+    data = data.concat fs.readFileSync("./lib/dictionaries/#{source}.txt").toString().split(/\r?\n/)
 
   mk = new markov.Markov(data)
-
-  console.log "DONE"
 
   contents.push(mk.get_sentence()) for i in [0..10]
 

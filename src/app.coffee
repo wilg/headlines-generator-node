@@ -1,8 +1,5 @@
 express = require("express")
 fs = require("fs")
-
-require('coffee-trace')
-
 coffee = require("coffee-script")
 markov = require("./markov")
 

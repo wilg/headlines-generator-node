@@ -22,6 +22,6 @@ app.get "/", (request, response) ->
 
   response.json contents
 
-port = 5001 #process.env.PORT ||
+port = process.env.PORT || 5001
 app.listen port, ->
   console.log "Listening on " + port

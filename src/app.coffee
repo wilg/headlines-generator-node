@@ -12,7 +12,7 @@ app.get "/", (request, response) ->
 
   console.log "PARSING PARSING"
 
-  data = fs.readFileSync("./dictionaries/hackernews.txt").toString().split(/\r?\n/);
+  data = fs.readFileSync("./lib/dictionaries/hackernews.txt").toString().split(/\r?\n/);
 
   mk = new markov.Markov(data)
 

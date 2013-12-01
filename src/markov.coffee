@@ -52,7 +52,7 @@ class Markov
       sentence_parts = []
       next_word = mapkeys[Math.floor(Math.random() * mapkeys.length)]
 
-      while next_word != '' and !!next_word
+      while next_word != '' and !!next_word and sentence_parts.join(' ').length < length_max
         sentence_parts.push next_word
         next_word = @markov_sample(@markov_map[sentence_parts[-@lookback..].join(' ')])
 
